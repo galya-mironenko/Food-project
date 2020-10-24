@@ -240,7 +240,7 @@ window.addEventListener("scroll", showModalByScroll);
 
     function postData(form){
         form.addEventListener("submit", (e) => {
-            e.prevent.Default();
+            e.preventDefault();
 
             const statusMessage = document.createElement("div");
             statusMessage.classList.add("status");
