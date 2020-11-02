@@ -323,4 +323,53 @@ window.addEventListener("scroll", showModalByScroll);
     fetch('http://localhost:3000/menu')
         .then(data => data.json())
         .then(res => console.log(res));
+
+
+// Slider 
+
+const slides = document.querySelectorAll(".offer__slide");
+const btnPrev = document.querySelector(".offer__slider-prev");
+const btnNext = document.querySelector(".offer__slider-next");
+const current = document.querySelector("#current");
+const total = document.querySelector("#total");
+let slideIndex = 1;
+
+showSlide(slideIndex);
+
+if(slides.length < 10){
+    total.textContent = `0${slides.length}`;
+}else{
+    total.textContent = slides.length;
+};
+
+function showSlide(n){
+    if(n > slides.length) {
+        slideIndex = 1;
+    }
+    if(n < 1){
+        slideIndex = slides.length;
+    }
+
+    slides.forEach(item => item.style.display = "none");
+    slides[slideIndex - 1].style.display = "block";
+
+    if(slides.length < 10){
+        current.textContent = `0${slideIndex}`;
+    }else{
+        current.textContent = slideIndex;
+    };
+}
+
+function plusSlides(n){
+    showSlide(slideIndex += n);
+}
+
+btnPrev.addEventListener("click", () => {
+    plusSlides(-1);
+});
+
+btnNext.addEventListener("click", () => {
+    plusSlides(1);
+});
+
 });
