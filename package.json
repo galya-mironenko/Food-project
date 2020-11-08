@@ -36,5 +36,7 @@
     "url": "https://github.com/galya-mironenko/Food-project/issues"
   },
   "homepage": "https://github.com/galya-mironenko/Food-project#readme",
-  "dependencies": {}
+  "dependencies": {
+    "lodash": "^4.17.20"
+  }
 }
